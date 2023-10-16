@@ -92,15 +92,9 @@ GOOGLE_CLIENT_SECRET=google_client_secret
 
 <strong>Step - 11:</strong>
 <br>
-Open the SessionGuard.php file from Auth folder and replace the line 809 with below line:
-
-return 'remember_me_'.Str::slug(env('APP_NAME'));
-
-<strong>Step - 12:</strong>
-<br>
 Build the assets by running the command "npm run build"
 
-<strong>Step - 13:</strong>
+<strong>Step - 12:</strong>
 <br>
 Delete the node_modules folder from the root directory
 
