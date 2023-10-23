@@ -9,8 +9,6 @@ use App\Http\Traits\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Traits\ThrottlesLogins;
 use Illuminate\Validation\ValidationException;
-use Cookie;
-use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -113,6 +111,7 @@ class AuthController extends Controller
             'token' => $token
         ],200);
     }
+
     public function login(Request $request)
     {
         if (method_exists($this, 'hasTooManyLoginAttempts') &&
@@ -154,6 +153,7 @@ class AuthController extends Controller
             ]);
         }
     }
+
     public function logout(){
         $user = Auth::user();
         $user->tokens()->delete();

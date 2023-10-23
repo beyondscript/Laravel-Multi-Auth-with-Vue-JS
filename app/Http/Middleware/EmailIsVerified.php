@@ -25,6 +25,5 @@ class EmailIsVerified
                 'message' => 'Your email address is not verified.'
             ],403);
         }
-            
     }
 }
