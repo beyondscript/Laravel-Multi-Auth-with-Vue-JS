@@ -3,4 +3,5 @@
   <div id="app">
   	<index />
   </div>
+  gg
 @endsection
