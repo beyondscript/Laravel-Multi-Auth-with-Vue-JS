@@ -30,6 +30,7 @@ import proChangeEmail from './components/pages/pro/profile/changeEmail.vue';
 import proChangePassword from './components/pages/pro/profile/changePassword.vue';
 import proChangePicture from './components/pages/pro/profile/changePicture.vue';
 import pageNotFound from './components/pages/errors/404.vue';
+import serverError from './components/pages/errors/500.vue';
 
 const routes = [
 	{
@@ -43,7 +44,8 @@ const routes = [
 			isVerified: undefined,
 			isAdmin: undefined,
 			isUser: undefined,
-			isPro: undefined
+			isPro: undefined,
+			isServerError: false
 		}
 	},
 	{
@@ -55,7 +57,8 @@ const routes = [
 			isVerified: undefined,
 			isAdmin: undefined,
 			isUser: undefined,
-			isPro: undefined
+			isPro: undefined,
+			isServerError: false
 		}
 	},
 	{
@@ -67,7 +70,8 @@ const routes = [
 			isVerified: undefined,
 			isAdmin: undefined,
 			isUser: undefined,
-			isPro: undefined
+			isPro: undefined,
+			isServerError: false
 		}
 	},
 	{
@@ -79,7 +83,8 @@ const routes = [
 			isVerified: undefined,
 			isAdmin: undefined,
 			isUser: undefined,
-			isPro: undefined
+			isPro: undefined,
+			isServerError: false
 		}
 	},
 	{
@@ -91,7 +96,8 @@ const routes = [
 			isVerified: undefined,
 			isAdmin: undefined,
 			isUser: undefined,
-			isPro: undefined
+			isPro: undefined,
+			isServerError: false
 		}
 	},
 	{
@@ -103,7 +109,8 @@ const routes = [
 			isVerified: false,
 			isAdmin: undefined,
 			isUser: undefined,
-			isPro: undefined
+			isPro: undefined,
+			isServerError: false
 		}
 	},
 	{
@@ -115,7 +122,8 @@ const routes = [
 			isVerified: false,
 			isAdmin: undefined,
 			isUser: undefined,
-			isPro: undefined
+			isPro: undefined,
+			isServerError: false
 		}
 	},
 	{
@@ -127,7 +135,8 @@ const routes = [
 			isVerified: undefined,
 			isAdmin: undefined,
 			isUser: undefined,
-			isPro: undefined
+			isPro: undefined,
+			isServerError: false
 		}
 	},
 	{
@@ -139,7 +148,8 @@ const routes = [
 			isVerified: undefined,
 			isAdmin: undefined,
 			isUser: undefined,
-			isPro: undefined
+			isPro: undefined,
+			isServerError: false
 		}
 	},
 	{
@@ -151,7 +161,8 @@ const routes = [
 			isVerified: undefined,
 			isAdmin: undefined,
 			isUser: undefined,
-			isPro: undefined
+			isPro: undefined,
+			isServerError: false
 		}
 	},
 	{
@@ -163,7 +174,8 @@ const routes = [
 			isVerified: undefined,
 			isAdmin: undefined,
 			isUser: undefined,
-			isPro: undefined
+			isPro: undefined,
+			isServerError: false
 		}
 	},
 	{
@@ -175,7 +187,8 @@ const routes = [
 			isVerified: undefined,
 			isAdmin: undefined,
 			isUser: undefined,
-			isPro: undefined
+			isPro: undefined,
+			isServerError: false
 		}
 	},
 	{
@@ -187,7 +200,8 @@ const routes = [
 			isVerified: true,
 			isAdmin: true,
 			isUser: false,
-			isPro: false
+			isPro: false,
+			isServerError: false
 		}
 	},
 	{
@@ -199,7 +213,8 @@ const routes = [
 			isVerified: true,
 			isAdmin: true,
 			isUser: false,
-			isPro: false
+			isPro: false,
+			isServerError: false
 		},
 		children: [
 			{
@@ -211,7 +226,8 @@ const routes = [
 					isVerified: true,
 					isAdmin: true,
 					isUser: false,
-					isPro: false
+					isPro: false,
+					isServerError: false
 				}
 			},
 			{
@@ -223,7 +239,8 @@ const routes = [
 					isVerified: true,
 					isAdmin: true,
 					isUser: false,
-					isPro: false
+					isPro: false,
+					isServerError: false
 				}
 			},
 			{
@@ -235,7 +252,8 @@ const routes = [
 					isVerified: true,
 					isAdmin: true,
 					isUser: false,
-					isPro: false
+					isPro: false,
+					isServerError: false
 				}
 			},
 			{
@@ -247,7 +265,8 @@ const routes = [
 					isVerified: true,
 					isAdmin: true,
 					isUser: false,
-					isPro: false
+					isPro: false,
+					isServerError: false
 				}
 			}
 		]
@@ -261,7 +280,8 @@ const routes = [
 			isVerified: true,
 			isUser: true,
 			isAdmin: false,
-			isPro: false
+			isPro: false,
+			isServerError: false
 		}
 	},
 	{
@@ -273,7 +293,8 @@ const routes = [
 			isVerified: true,
 			isUser: true,
 			isAdmin: false,
-			isPro: false
+			isPro: false,
+			isServerError: false
 		},
 		children: [
 			{
@@ -285,7 +306,8 @@ const routes = [
 					isVerified: true,
 					isUser: true,
 					isAdmin: false,
-					isPro: false
+					isPro: false,
+					isServerError: false
 				}
 			},
 			{
@@ -297,7 +319,8 @@ const routes = [
 					isVerified: true,
 					isUser: true,
 					isAdmin: false,
-					isPro: false
+					isPro: false,
+					isServerError: false
 				}
 			},
 			{
@@ -309,7 +332,8 @@ const routes = [
 					isVerified: true,
 					isUser: true,
 					isAdmin: false,
-					isPro: false
+					isPro: false,
+					isServerError: false
 				}
 			},
 			{
@@ -321,7 +345,8 @@ const routes = [
 					isVerified: true,
 					isUser: true,
 					isAdmin: false,
-					isPro: false
+					isPro: false,
+					isServerError: false
 				}
 			}
 		]
@@ -335,7 +360,8 @@ const routes = [
 			isVerified: true,
 			isPro: true,
 			isAdmin: false,
-			isUser: false
+			isUser: false,
+			isServerError: false
 		}
 	},
 	{
@@ -347,7 +373,8 @@ const routes = [
 			isVerified: true,
 			isPro: true,
 			isAdmin: false,
-			isUser: false
+			isUser: false,
+			isServerError: false
 		},
 		children: [
 			{
@@ -359,7 +386,8 @@ const routes = [
 					isVerified: true,
 					isPro: true,
 					isAdmin: false,
-					isUser: false
+					isUser: false,
+					isServerError: false
 				}
 			},
 			{
@@ -371,7 +399,8 @@ const routes = [
 					isVerified: true,
 					isPro: true,
 					isAdmin: false,
-					isUser: false
+					isUser: false,
+					isServerError: false
 				}
 			},
 			{
@@ -383,7 +412,8 @@ const routes = [
 					isVerified: true,
 					isPro: true,
 					isAdmin: false,
-					isUser: false
+					isUser: false,
+					isServerError: false
 				}
 			},
 			{
@@ -395,7 +425,8 @@ const routes = [
 					isVerified: true,
 					isPro: true,
 					isAdmin: false,
-					isUser: false
+					isUser: false,
+					isServerError: false
 				}
 			}
 		]
@@ -405,6 +436,20 @@ const routes = [
 		name: '404',
 		component: pageNotFound,
 		meta: {
+			requiresAuth: undefined,
+			isVerified: undefined,
+			isAdmin: undefined,
+			isUser: undefined,
+			isPro: undefined,
+			isServerError: false
+		}
+	},
+	{
+		path: '/server-error',
+		name: '500',
+		component: serverError,
+		meta: {
+			isServerError: true,
 			requiresAuth: undefined,
 			isVerified: undefined,
 			isAdmin: undefined,
@@ -483,6 +528,15 @@ router.beforeEach((to, from, next) => {
 	else if(to.meta.isPro === false && store.getters.getType === 'Pro'){
 		toastr.error('You are not allowed to perform this action')
 		next({name: 'proDashboard'})
+	}
+	else{
+		next()
+	}
+})
+
+router.beforeEach((to, from, next) => {
+	if(to.meta.isServerError === true && store.getters.getServerError === false){
+		next({name: '404'})
 	}
 	else{
 		next()

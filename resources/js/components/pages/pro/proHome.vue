@@ -5,7 +5,7 @@
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12">
-          <div class="card my-4">
+          <div class="card my-4" style="margin-top: 105px !important;">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-capitalize ps-3" style="text-align: center; padding-left: 0 !important;">Dashboard</h6>
@@ -51,9 +51,8 @@
       const store = useStore()
       onBeforeMount(
         async() => {
-          const { checkAuthentication, authUser } = profile()
+          const { checkAuthentication } = profile()
           await checkAuthentication()
-          await authUser()
         }
       )
       onMounted(
@@ -62,11 +61,6 @@
           const { usePerfectScrollbar, useToggleSidebar } = materialDashboard()
           usePerfectScrollbar()
           useToggleSidebar()
-        }
-      )
-      onBeforeUnmount(
-        async() => {
-          store.dispatch('removeUser')
         }
       )
       onUnmounted(

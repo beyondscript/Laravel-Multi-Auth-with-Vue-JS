@@ -1,6 +1,6 @@
 <template>
 		<!-- Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 border-radius-xl shadow-none position-sticky blur shadow-blur mt-4 left-auto top-1 z-index-sticky" style="margin-top: 1rem !important" data-scroll="true">
+    <nav id="navbar_main" class="navbar navbar-main navbar-expand-lg px-0 mx-4 border-radius-xl shadow-none position-sticky blur shadow-blur mt-4 left-auto top-1 z-index-sticky" style="margin-top: 1rem !important" data-scroll="true">
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <h6 class="font-weight-bolder mb-0" style="padding-top: 7px;">Pro User</h6>

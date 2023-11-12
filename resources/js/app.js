@@ -16,6 +16,17 @@ toastr.options.closeButton = true
 toastr.options.timeOut = 5000
 window.toastr = toastr
 
+axios.interceptors.response.use(
+	response => response,
+  	async(error) => {
+		if(error.response.status === 500 && store.getters.getAppDebug === 'false'){
+			store.dispatch('setServerError')
+			router.push({name: '500'})
+		}
+		return Promise.reject(error)
+	}
+)
+
 const app = createApp({})
 app.component('index', index)
 app.use(store)

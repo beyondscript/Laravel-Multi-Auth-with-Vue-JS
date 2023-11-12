@@ -7,7 +7,7 @@
           <div class="col-lg-4 col-md-8 col-12 mx-auto">
             <router-link class="link" style="display: flex; align-items: center; justify-content: center; margin-top: 16px; margin-bottom: 16px;" :to="{name: 'Home'}">
               <img :src="'/assets/img/logo-ct.webp'" style="display: inline; width: 32px; height: 32px; margin-right: 2.5px;">
-              <span style="display: inline; text-transform: uppercase; font-weight: 600; font-size: 1rem; margin-left: 2.5px;">{{$store.getters.getAppName}}</span>
+              <span id="unauthenticated_app_name" style="display: inline; text-transform: uppercase; font-weight: 600; font-size: 1rem; margin-left: 2.5px;">{{$store.getters.getAppName}}</span>
             </router-link>
             <div class="card z-index-0 fadeIn3 fadeInBottom" style="margin-top: 41px; margin-bottom: 16px;">
               <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -46,7 +46,7 @@
                     <ErrorMessage id="password_error" class="error" name="password" />
                   </div>
                   <div class="form-check form-switch d-flex align-items-center mb-3">
-                    <input class="form-check-input" type="checkbox" id="showpass" onclick="showPasswordSignIn()">
+                    <input class="form-check-input" type="checkbox" id="showpass" @click="showPassword">
                     <label class="form-check-label mb-0 ms-3" style="padding-top: 5px;" for="showpass">Show Password</label>
                   </div>
                   <div class="form-check form-switch d-flex align-items-center mb-3">
@@ -107,6 +107,14 @@
         email: yup.string().required('The email field is required.').typeError('The email must be a string.').email('The email must be a valid email address.').max(255, 'The email must not be greater than 255 characters.'),
         password: yup.string().required('The password field is required.').typeError('The password must be a string.').min(8, 'The password must be at least 8 characters.')
       })
+      const showPassword = async() => {
+        var x = document.getElementById("password")
+        if (x.type === "password") {
+          x.type = "text"
+        } else {
+          x.type = "password"
+        }
+      }
       const loginUser = async(values, { resetForm }) => {
         if (values.remember === undefined) {
           values.remember = false
@@ -185,6 +193,7 @@
       )
       return{
         schema,
+        showPassword,
         loginUser,
         facebookLoginUser,
         githubLoginUser,

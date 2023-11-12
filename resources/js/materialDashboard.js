@@ -1,4 +1,29 @@
 export default function materialDashboard(){
+	const backgroundImage = async() => {
+		var widthLimit = 991
+        var windowWidth = window.innerWidth
+        if(windowWidth <= widthLimit) {
+            document.getElementById('page_header').style.backgroundImage = "url('/assets/img/illustrations/signup.webp')"
+            document.getElementById('page_header').style.backgroundSize = "cover"
+            document.getElementById('page_header').style.backgroundPosition = "center"
+        }
+
+        window.addEventListener('resize', function () {
+        	var currentWidth = window.innerWidth
+        	if (currentWidth <= widthLimit) {
+        		if(document.getElementById('page_header')){
+        			document.getElementById('page_header').style.backgroundImage = "url('/assets/img/illustrations/signup.webp')"
+              		document.getElementById('page_header').style.backgroundSize = "cover"
+              		document.getElementById('page_header').style.backgroundPosition = "center"
+        		}
+        	}
+            else {
+            	if(document.getElementById('page_header')){
+            		document.getElementById('page_header').removeAttribute('style')
+            	}
+            }
+        })
+	}
 	const useRipple = async() => {
 	  // Ripple Effect
 	  var ripples = document.querySelectorAll('.btn');
@@ -228,54 +253,7 @@ export default function materialDashboard(){
 		      }
 		    }
 		  });
-
-		  if (window.innerWidth < 991) {
-		    total.forEach(function(item, i) {
-		      if (!item.classList.contains('flex-column')) {
-		        item.classList.remove('flex-row');
-		        item.classList.add('flex-column', 'on-resize');
-		        let li = item.querySelector(".nav-link.active").parentElement;
-		        let nodes = Array.from(li.closest('ul').children); // get array
-		        let index = nodes.indexOf(li) + 1;
-		        let sum = 0;
-		        for (var j = 1; j <= nodes.indexOf(li); j++) {
-		          sum += item.querySelector('li:nth-child(' + j + ')').offsetHeight;
-		        }
-		        var moving_div = document.querySelector('.moving-tab');
-		        moving_div.style.width = item.querySelector('li:nth-child(1)').offsetWidth + 'px';
-		        moving_div.style.transform = 'translate3d(0px,' + sum + 'px, 0px)';
-
-		      }
-		    });
-		  } else {
-		    total.forEach(function(item, i) {
-		      if (item.classList.contains('on-resize')) {
-		        item.classList.remove('flex-column', 'on-resize');
-		        item.classList.add('flex-row');
-		        let li = item.querySelector(".nav-link.active").parentElement;
-		        let nodes = Array.from(li.closest('ul').children); // get array
-		        let index = nodes.indexOf(li) + 1;
-		        let sum = 0;
-		        for (var j = 1; j <= nodes.indexOf(li); j++) {
-		          sum += item.querySelector('li:nth-child(' + j + ')').offsetWidth;
-		        }
-		        var moving_div = document.querySelector('.moving-tab');
-		        moving_div.style.transform = 'translate3d(' + sum + 'px, 0px, 0px)';
-		        moving_div.style.width = item.querySelector('li:nth-child(' + index + ')').offsetWidth + 'px';
-		      }
-		    })
-		  }
 		});
-
-		// Function to remove flex row on mobile devices
-		if (window.innerWidth < 991) {
-		  total.forEach(function(item, i) {
-		    if (item.classList.contains('flex-row')) {
-		      item.classList.remove('flex-row');
-		      item.classList.add('flex-column', 'on-resize');
-		    }
-		  });
-		}
 
 		function getEventTarget(e) {
 		  e = e || window.event;
@@ -283,6 +261,7 @@ export default function materialDashboard(){
 		}
 	}
 	return{
+		backgroundImage,
 		useRipple,
 		useInput,
 		usePerfectScrollbar,

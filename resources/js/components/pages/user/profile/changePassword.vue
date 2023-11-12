@@ -5,7 +5,7 @@
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12">
-          <div class="card my-4">
+          <div class="card my-4" style="margin-top: 105px !important;">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-capitalize ps-3" style="text-align: center; padding-left: 0 !important;">Change Password</h6>
@@ -31,7 +31,7 @@
                       <Field id="password-confirm" name="password_confirmation" type="password" class="form-control" />
                     </div>
                     <div class="form-check form-switch d-flex align-items-center mb-3" style="margin-bottom: 0 !important; margin-top: 5px;">
-                      <input class="form-check-input" type="checkbox" id="showpass" onclick="showPasswordChangePassword()">
+                      <input class="form-check-input" type="checkbox" id="showpass" @click="showPassword">
                       <label class="form-check-label mb-0 ms-3" style="padding-top: 5px;" for="showpass">Show Password</label>
                     </div>
                     <div class="text-center">
@@ -72,9 +72,8 @@
       const { changePassword } = profile()
       onBeforeMount(
         async() => {
-          const { checkAuthentication, authUser } = profile()
+          const { checkAuthentication } = profile()
           await checkAuthentication()
-          await authUser()
         }
       )
       onMounted(
@@ -90,6 +89,26 @@
         current_password: yup.string().required('The current password field is required.').typeError('The current password must be a string.').min(8, 'The current password must be at least 8 characters.'),
         password: yup.string().required('The password field is required.').typeError('The password must be a string.').min(8, 'The password must be at least 8 characters.')
       })
+      const showPassword = async() => {
+        var x = document.getElementById("current_password")
+        if (x.type === "password") {
+          x.type = "text"
+        } else {
+          x.type = "password"
+        }
+        var y = document.getElementById("password")
+        if (y.type === "password") {
+          y.type = "text"
+        } else {
+          y.type = "password"
+        }
+        var z = document.getElementById("password-confirm")
+        if (z.type === "password") {
+          z.type = "text"
+        } else {
+          z.type = "password"
+        }
+      }
       const changeUserPassword = async(values, { resetForm }) => {
       	const type_profile = store.getters.getUser.type.toLowerCase() + '-profile'
       	await changePassword(values, type_profile)
@@ -154,11 +173,6 @@
         await showCurrentPasswordError()
         await removePasswordError()
       }
-      onBeforeUnmount(
-        async() => {
-          store.dispatch('removeUser')
-        }
-      )
       onUnmounted(
         async() => {
           document.getElementById('body').removeAttribute('class')
@@ -167,6 +181,7 @@
       )
       return{
       	schema,
+        showPassword,
         changeUserPassword,
         showCurrentPasswordError,
         removePasswordError,

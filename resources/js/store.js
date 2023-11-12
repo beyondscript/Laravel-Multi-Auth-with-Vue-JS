@@ -14,8 +14,10 @@ const store = createStore({
 		message: null,
 		type: localStorage.getItem('type') || 'Unset',
 		user: {},
+		userLoading: true,
 		resetToken: null,
-		progress: null
+		progress: null,
+		serverError: false
 	},
 	mutations:{
 		updateEmailError(state, payload){
@@ -48,11 +50,17 @@ const store = createStore({
 		updateUser(state, payload){
 			state.user = payload
 		},
+		updateUserLoading(state, payload){
+			state.userLoading = payload
+		},
 		updateResetToken(state, payload){
 			state.resetToken = payload
 		},
 		updateProgress(state, payload){
 			state.progress = payload
+		},
+		updateServerError(state, payload){
+			state.serverError = payload
 		}
 	},
 	actions:{
@@ -122,6 +130,12 @@ const store = createStore({
 		removeUser(context){
 			context.commit('updateUser', {})
 		},
+		setUserLoading(context){
+			context.commit('updateUserLoading', true)
+		},
+		removeUserLoading(context){
+			context.commit('updateUserLoading', false)
+		},
 		setResetToken(context, payload){
 			context.commit('updateResetToken', payload)
 		},
@@ -133,6 +147,12 @@ const store = createStore({
 		},
 		removeProgress(context){
 			context.commit('updateProgress', null)
+		},
+		setServerError(context){
+			context.commit('updateServerError', true)
+		},
+		removeServerError(context){
+			context.commit('updateServerError', false)
 		}
 	},
 	getters:{
@@ -172,11 +192,17 @@ const store = createStore({
 		getUser: function(state){
 			return state.user
 		},
+		getUserLoading: function(state){
+			return state.userLoading
+		},
 		getResetToken: function(state){
 			return state.resetToken
 		},
 		getProgress: function(state){
 			return state.progress
+		},
+		getServerError: function(state){
+			return state.serverError
 		}
 	}
 })

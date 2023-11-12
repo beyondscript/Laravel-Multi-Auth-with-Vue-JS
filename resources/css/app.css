@@ -1,3 +1,8 @@
+html,
+#sidenav-main {
+  overflow: hidden;
+}
+
 .link,
 .link-2{
   color: #2E4AFF;
@@ -21,6 +26,22 @@
   display: none;
 }
 
+#navbar_main {
+  position: fixed !important;
+  width: -webkit-fill-available;
+  width: -moz-available;
+}
+
+.user_loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
 .profile_picture{
   display: block;
   width: 128px;
@@ -30,6 +51,12 @@
   border-radius: 64px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.profile_settings_div{
+  display: flex;
+  justify-content: center;
+  margin-top: 1.4rem;
 }
 
 .loader {
@@ -117,6 +144,12 @@
   }
 }
 
+@media only screen and (max-width: 1200px) and (min-width: 992px){
+  #unauthenticated_app_name{
+    font-size: 0.977rem !important;
+  }
+}
+
 @media only screen and (max-height: 720px) {
   .loader{
     top: 38%;
@@ -141,9 +174,22 @@
   }
 }
 
+@media only screen and (max-width: 392px) {
+  .profile_settings_div{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 @media only screen and (max-height: 360px) {
   .loader{
     top: 34%;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  #unauthenticated_app_name{
+    font-size: 0.826rem !important;
   }
 }
 

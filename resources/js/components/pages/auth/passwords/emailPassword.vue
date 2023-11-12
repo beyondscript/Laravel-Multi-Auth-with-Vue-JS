@@ -2,7 +2,7 @@
   <main class="main-content position-relative max-height-vh-100  mt-0">
     <div class="loader" v-if="$store.getters.getLoading"></div>
     <section>
-      <div class="page-header min-vh-100">
+      <div id="page_header" class="page-header min-vh-100">
         <div class="container">
           <div class="row">
             <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
@@ -12,12 +12,13 @@
             <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5">
               <router-link class="link-2" style="display: flex; align-items: center; justify-content: center; margin-top: 16px; margin-bottom: 16px;" :to="{name: 'Home'}">
                 <img :src="'/assets/img/logo-ct.webp'" style="display: inline; width: 32px; height: 32px; margin-right: 2.5px;">
-                <span style="display: inline; text-transform: uppercase; font-weight: 600; font-size: 1rem; margin-left: 2.5px;">{{$store.getters.getAppName}}</span>
+                <span id="unauthenticated_app_name" style="display: inline; text-transform: uppercase; font-weight: 600; font-size: 1rem; margin-left: 2.5px;">{{$store.getters.getAppName}}</span>
               </router-link>
-              <div class="card card-plain" style="box-shadow: 0 0 20px 2px rgb(0 0 0 / 10%); margin-bottom: 16px;">
-                <div class="card-header">
-                  <h4 class="font-weight-bolder">RESET PASSWORD</h4>
-                  <p class="mb-0">Enter your email to receive a password reset link</p>
+              <div class="card card-plain" style="background-color: white; box-shadow: 0 0 20px 2px rgb(0 0 0 / 10%); margin-top: 25px; margin-bottom: 16px;">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                  <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                    <h4 class="text-white font-weight-bolder text-center mt-2 mb-0" style="margin-top: 0 !important;">RESET PASSWORD</h4>
+                  </div>
                 </div>
                 <div class="card-body">
                   {{$store.getters.getMessage}}
@@ -71,7 +72,8 @@
       )
       onMounted(
         async() => {
-          const { usePerfectScrollbar, useInput } = materialDashboard()
+          const { backgroundImage, usePerfectScrollbar, useInput } = materialDashboard()
+          backgroundImage()
           usePerfectScrollbar()
           useInput()
         }

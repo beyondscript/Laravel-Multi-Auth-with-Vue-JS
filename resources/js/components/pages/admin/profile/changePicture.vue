@@ -5,7 +5,7 @@
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12">
-          <div class="card my-4">
+          <div class="card my-4" style="margin-top: 105px !important;">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-capitalize ps-3" style="text-align: center; padding-left: 0 !important;">Change Profile Picture</h6>
@@ -66,9 +66,8 @@
       const { changePicture } = profile()
       onBeforeMount(
         async() => {
-          const { checkAuthentication, authUser } = profile()
+          const { checkAuthentication } = profile()
           await checkAuthentication()
-          await authUser()
         }
       )
       onMounted(
@@ -77,7 +76,15 @@
           const { usePerfectScrollbar, useToggleSidebar } = materialDashboard()
           usePerfectScrollbar()
           useToggleSidebar()
-          $('.dropify').dropify()
+          $('.dropify').dropify({
+            tpl: {
+              wrap: '<div id="dropify-wrapper" class="dropify-wrapper"></div>'
+            }
+          });
+
+          if('ontouchstart' in window) {
+            document.getElementById('dropify-wrapper').classList.remove('touch-fallback')
+          }
         }
       )
       const schema = yup.object().shape({
@@ -111,11 +118,6 @@
       const removeErrors = async() => {
         store.dispatch('removeImageError')
       }
-      onBeforeUnmount(
-        async() => {
-          store.dispatch('removeUser')
-        }
-      )
       onUnmounted(
         async() => {
           document.getElementById('body').removeAttribute('class')

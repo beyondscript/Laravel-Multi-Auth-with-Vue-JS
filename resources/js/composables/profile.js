@@ -40,12 +40,7 @@ export default function profile(){
       }
     }
     catch(error){
-      if(error.response.status === 401 && error.response.data.message === 'Unauthenticated.'){
-        store.dispatch('removeToken')
-        store.dispatch('removeVerified')
-        store.dispatch('removeType')
-        router.push({name: 'Home'})
-      }
+      console.log(error)
     }
   }
 	const authUser = async() => {
@@ -60,6 +55,9 @@ export default function profile(){
         store.dispatch('removeType')
         router.push({name: 'Home'})
       }
+    }
+    finally{
+      store.dispatch('removeUserLoading')
     }
 	}
 	const changeEmail = async(values, type_profile) => {
