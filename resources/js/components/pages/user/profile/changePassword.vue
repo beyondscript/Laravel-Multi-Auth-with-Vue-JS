@@ -72,8 +72,9 @@
       const { changePassword } = profile()
       onBeforeMount(
         async() => {
-          const { checkAuthentication } = profile()
+          const { checkAuthentication, authUser } = profile()
           await checkAuthentication()
+          await authUser()
         }
       )
       onMounted(
