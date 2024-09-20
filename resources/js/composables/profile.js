@@ -40,7 +40,12 @@ export default function profile(){
       }
     }
     catch(error){
-      console.log(error)
+      if(error.response.status === 401 && error.response.data.message === 'Unauthenticated.'){
+        store.dispatch('removeToken')
+        store.dispatch('removeVerified')
+        store.dispatch('removeType')
+        router.push({name: 'Home'})
+      }
     }
   }
 	const authUser = async() => {
