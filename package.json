@@ -1,0 +1,29 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "axios": "^1.1.2",
+        "laravel-vite-plugin": "^0.7.2",
+        "lodash": "^4.17.19",
+        "postcss": "^8.1.14",
+        "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "@vitejs/plugin-vue": "^4.0.0",
+        "axios-auth-refresh": "^3.3.6",
+        "dropify": "^0.2.2",
+        "jquery": "^3.6.3",
+        "sass": "^1.60.0",
+        "sweetalert2": "^11.4.8",
+        "toastr": "^2.1.4",
+        "vee-validate": "^4.7.3",
+        "vue": "^3.2.36",
+        "vue-loader": "^17.0.1",
+        "vue-router": "^4.0.13",
+        "vuex": "^4.0.2",
+        "yup": "^0.32.11"
+    }
+}
