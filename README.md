@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="https://github.com/beyondscript/Laravel-Multi-Auth-with-Vue-JS/blob/main/public/assets/img/logo-ct.webp" width="60" height="60" margin-left="auto" margin-right="auto" alt="Logo">
+	<img src="https://github.com/beyondscript/Laravel-Multi-Auth-with-Vue-JS/blob/main/public/assets/img/favicon.webp" width="60" height="60" margin-left="auto" margin-right="auto" alt="Logo">
 	<br>
 	Laravel Multi Auth with Vue JS
 </p>
@@ -102,15 +102,15 @@ Delete the node_modules folder from the root directory
 
 <strong>Facebook Callback/Redirect Url:</strong>
 <br>
-your_application_url/api/auth/facebook/callback
+your_application_url/api/auth/facebook-callback
 
 <strong>GitHub Callback/Redirect Url:</strong>
 <br>
-your_application_url/api/auth/github/callback
+your_application_url/api/auth/github-callback
 
 <strong>Google Callback/Redirect Url:</strong>
 <br>
-your_application_url/api/auth/google/callback
+your_application_url/api/auth/google-callback
 
 <strong>Admin Credentials:</strong>
 <br>
