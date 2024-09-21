@@ -13,12 +13,11 @@
             </div>
             <div class="card-body px-0 pb-2">
               <div class="table-responsive p-0" style="padding: 5px !important;">
-                <Form role="form" :validation-schema="schema" @submit="changeUserPicture" @invalid-submit="removeErrors">
+                <Form role="form" @submit="changeUserPicture" @invalid-submit="removeErrors">
                   <div style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;">
                     <div class="input-group input-group-outline my-3" style="margin-top: 0 !important; margin-bottom: 0 !important;">
                       <label for="image">Profile Picture</label>
                       <Field id="image" type="file" class="dropify" data-height="150" name="image" tabindex="-1" @blur="removeImageError" />
-                      <ErrorMessage class="error" name="image" />
                       <span id="image_error" class="error" role="alert">{{$store.getters.getImageError}}</span>
                     </div>
                     <div style="margin-top: 10px; text-align: center;" v-if="$store.getters.getProgress">
@@ -45,8 +44,7 @@
 </template>
 <script>
   import { onBeforeMount, onMounted, onBeforeUnmount, onUnmounted } from 'vue';
-  import { Form, Field, ErrorMessage } from 'vee-validate';
-  import * as yup from 'yup';
+  import { Form, Field } from 'vee-validate';
   import $ from 'jquery';
   import { useStore } from 'vuex';
   import materialDashboard from "../../../../../js/materialDashboard";
@@ -58,8 +56,7 @@
       sidebar,
       navbar,
       Form,
-      Field,
-      ErrorMessage
+      Field
     },
     setup(){
       const store = useStore()
@@ -89,9 +86,6 @@
           }
         }
       )
-      const schema = yup.object().shape({
-        image: yup.mixed().required('The profile picture field is required.')
-      })
       const changeUserPicture = async(values, { resetForm }) => {
         const type_profile = store.getters.getUser.type.toLowerCase() + '-profile'
         store.dispatch('removeImageError')
@@ -132,7 +126,6 @@
         }
       )
       return{
-        schema,
         changeUserPicture,
         removeImageError,
         removeErrors

@@ -57,7 +57,7 @@ class ProfileController extends Controller
     public function update_picture(Request $request)
     {
         $validated = $request->validate([
-            'image' => ['image']
+            'image' => ['required', 'image']
         ]);
 
         $user = User::findorfail(Auth::user()->id);

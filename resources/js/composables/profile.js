@@ -168,35 +168,53 @@ export default function profile(){
     }
     formData.append('_method', 'patch')
     store.dispatch('removeImageError')
-    try{
-      let response = await axios.post('/api/' + type_profile + '/update-picture', formData, {
-        headers: {'Content-Type':'multipart/form-data'},
-        onUploadProgress: progressEvent => {
-          store.dispatch('setProgress', (progressEvent.loaded / progressEvent.total) * 100)
+    if(values.image === undefined){
+      try{
+        let response = await axios.post('/api/' + type_profile + '/update-picture', formData)
+      }
+      catch(error){
+        if(error.response.status === 422){
+          store.dispatch('setImageError', error.response.data.errors.image[0])
         }
-      })
-      store.dispatch('removeProgress')
-      if(response.data.type === 'Admin'){
-        router.push({name: 'adminProfile'})
+        else if(error.response.status === 401 && error.response.data.message === 'Unauthenticated.'){
+          store.dispatch('removeToken')
+          store.dispatch('removeVerified')
+          store.dispatch('removeType')
+          router.push({name: 'Home'})
+        }
       }
-      else if(response.data.type === 'User'){
-        router.push({name: 'userProfile'})
-      }
-      else if(response.data.type === 'Pro'){
-        router.push({name: 'proProfile'})
-      }
-      toastr.success(response.data.message)
     }
-    catch(error){
-      store.dispatch('removeProgress')
-      if(error.response.status === 422){
-        store.dispatch('setImageError', error.response.data.errors.image[0])
+    else{
+      try{
+        let response = await axios.post('/api/' + type_profile + '/update-picture', formData, {
+          headers: {'Content-Type':'multipart/form-data'},
+          onUploadProgress: progressEvent => {
+            store.dispatch('setProgress', (progressEvent.loaded / progressEvent.total) * 100)
+          }
+        })
+        store.dispatch('removeProgress')
+        if(response.data.type === 'Admin'){
+          router.push({name: 'adminProfile'})
+        }
+        else if(response.data.type === 'User'){
+          router.push({name: 'userProfile'})
+        }
+        else if(response.data.type === 'Pro'){
+          router.push({name: 'proProfile'})
+        }
+        toastr.success(response.data.message)
       }
-      else if(error.response.status === 401 && error.response.data.message === 'Unauthenticated.'){
-        store.dispatch('removeToken')
-        store.dispatch('removeVerified')
-        store.dispatch('removeType')
-        router.push({name: 'Home'})
+      catch(error){
+        store.dispatch('removeProgress')
+        if(error.response.status === 422){
+          store.dispatch('setImageError', error.response.data.errors.image[0])
+        }
+        else if(error.response.status === 401 && error.response.data.message === 'Unauthenticated.'){
+          store.dispatch('removeToken')
+          store.dispatch('removeVerified')
+          store.dispatch('removeType')
+          router.push({name: 'Home'})
+        }
       }
     }
   }
