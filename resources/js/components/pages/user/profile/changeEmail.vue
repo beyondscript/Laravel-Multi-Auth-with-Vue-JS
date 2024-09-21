@@ -157,6 +157,11 @@
         await showCurrentPasswordError()
         await removeEmailError()
       }
+      onBeforeUnmount(
+        async() => {
+          store.dispatch('removeUser')
+        }
+      )
       onUnmounted(
         async() => {
           document.getElementById('body').removeAttribute('class')

@@ -120,6 +120,11 @@
       const removeErrors = async() => {
         store.dispatch('removeImageError')
       }
+      onBeforeUnmount(
+        async() => {
+          store.dispatch('removeUser')
+        }
+      )
       onUnmounted(
         async() => {
           document.getElementById('body').removeAttribute('class')

@@ -164,12 +164,19 @@ export default function materialDashboard(){
 
 		function initNavs() {
 		  total.forEach(function(item, i) {
+		  	if(document.getElementById('moving_div_id')){
+	            document.getElementById('moving_div_id').remove();
+	        }
 		    var moving_div = document.createElement('div');
 		    var first_li = item.querySelector('li:first-child .nav-link');
 		    var tab = first_li.cloneNode();
+		    if (!tab.classList.contains('active')) {
+    			tab.classList.add('active');
+			}
 		    tab.innerHTML = "-";
 
 		    moving_div.classList.add('moving-tab', 'position-absolute', 'nav-link');
+		    moving_div.id = 'moving_div_id';
 		    moving_div.appendChild(tab);
 		    item.appendChild(moving_div);
 
