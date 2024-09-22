@@ -61,12 +61,12 @@
                         <strong v-else>Not connected</strong>
                       </div>
                       <div style="text-align: center;">
-                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/user-profile/connect-facebook-account" @click.prevent="facebookConnectUser">
+                        <button class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 10px; margin: 5px !important;" type="button" @click="facebookConnectUser">
                           Connect with Facebook
-                        </a>
-                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/user-profile/remove-facebook-account" @click.prevent="facebookRemoveUser">
+                        </button>
+                        <button class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 10px; margin: 5px !important;" type="button" @click="facebookRemoveUser">
                           Remove from Facebook
-                        </a>
+                        </button>
                       </div>
                     </div>
                     <div id="github_tab_contents" style="display: none;">
@@ -76,12 +76,12 @@
                         <strong v-else>Not connected</strong>
                       </div>
                       <div style="text-align: center;">
-                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/user-profile/connect-github-account" @click.prevent="githubConnectUser">
+                        <button class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 10px; margin: 5px !important;" type="button" @click="githubConnectUser">
                           Connect with GitHub
-                        </a>
-                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/user-profile/remove-github-account" @click.prevent="githubRemoveUser">
+                        </button>
+                        <button class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 10px; margin: 5px !important;" type="button" @click="githubRemoveUser">
                           Remove from GitHub
-                        </a>
+                        </button>
                       </div>
                     </div>
                     <div id="google_tab_contents" style="display: none;">
@@ -91,12 +91,12 @@
                         <strong v-else>Not connected</strong>
                       </div>
                       <div style="text-align: center;">
-                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/user-profile/connect-google-account" @click.prevent="googleConnectUser">
+                        <button class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 10px; margin: 5px !important;" type="button" @click="googleConnectUser">
                           Connect with Google
-                        </a>
-                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/user-profile/remove-google-account" @click.prevent="googleRemoveUser">
+                        </button>
+                        <button class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 10px; margin: 5px !important;" type="button" @click="googleRemoveUser">
                           Remove from Google
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </div>
