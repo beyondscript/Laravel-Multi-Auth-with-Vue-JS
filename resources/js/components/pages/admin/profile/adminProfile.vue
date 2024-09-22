@@ -37,69 +37,67 @@
                 </div>
                 <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3" style="margin-bottom: 10px !important; margin-right: auto !important;">
                   <div class="nav-wrapper position-relative end-0">
-                    <ul class="nav nav-pills nav-fill p-1" role="tablist">
-                      <li class="nav-item">
-                        <a class="nav-link mb-0 px-0 py-1 active " data-bs-toggle="tab" href="/admin-profile/facebook-tab" role="tab" aria-selected="true" data-bs-target="#facebook">
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                      <div class="social_tabs">
+                        <a id="facebook_tab" href="/admin-profile/show-facebook-tab" class="social_tabs_links" style="background-color: #ffffff; box-shadow: 0 1px 5px 1px #ddd;" @click.prevent="switchFacebookTab">
                           <i class="fa fa-facebook-f"></i>
                         </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link mb-0 px-0 py-1 " data-bs-toggle="tab" href="/admin-profile/github-tab" role="tab" aria-selected="false" data-bs-target="#github">
+                      </div>
+                      <div class="social_tabs">
+                        <a id="github_tab" href="/admin-profile/show-github-tab" class="social_tabs_links" style="background-color: #F8F9FA; box-shadow: none" @click.prevent="switchGithubTab">
                           <i class="fa fa-github"></i>
                         </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link mb-0 px-0 py-1 " data-bs-toggle="tab" href="/admin-profile/google-tab" role="tab" aria-selected="false" data-bs-target="#google">
+                      </div>
+                      <div class="social_tabs">
+                        <a id="google_tab" href="/admin-profile/show-google-tab" class="social_tabs_links" style="background-color: #F8F9FA; box-shadow: none;" @click.prevent="switchGoogleTab">
                           <i class="fa fa-google"></i>
                         </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="tab-content">
-                  <div id="facebook" class="tab-pane active">
-                    <div style="text-align: center; margin-top: 5px; margin-bottom: 10px;">
-                      <strong>Status: </strong>
-                      <strong v-if="$store.getters.getUser.facebook_id">Connected</strong>
-                      <strong v-else>Not connected</strong>
+                      </div>
                     </div>
-                    <div style="text-align: center;">
-                      <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/admin-profile/connect-facebook-account" @click.prevent="facebookConnectUser">
-                        Connect with Facebook
-                      </a>
-                      <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/admin-profile/remove-facebook-account" @click.prevent="facebookRemoveUser">
-                        Remove from Facebook
-                      </a>
+                    <div id="facebook_tab_contents" style="display: block;">
+                      <div style="text-align: center; margin-top: 5px; margin-bottom: 10px;">
+                        <strong>Status: </strong>
+                        <strong v-if="$store.getters.getUser.facebook_id">Connected</strong>
+                        <strong v-else>Not connected</strong>
+                      </div>
+                      <div style="text-align: center;">
+                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/admin-profile/connect-facebook-account" @click.prevent="facebookConnectUser">
+                          Connect with Facebook
+                        </a>
+                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/admin-profile/remove-facebook-account" @click.prevent="facebookRemoveUser">
+                          Remove from Facebook
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                  <div id="github" class="tab-pane">
-                    <div style="text-align: center; margin-top: 5px; margin-bottom: 10px;">
-                      <strong>Status: </strong>
-                      <strong v-if="$store.getters.getUser.github_id">Connected</strong>
-                      <strong v-else>Not connected</strong>
+                    <div id="github_tab_contents" style="display: none;">
+                      <div style="text-align: center; margin-top: 5px; margin-bottom: 10px;">
+                        <strong>Status: </strong>
+                        <strong v-if="$store.getters.getUser.github_id">Connected</strong>
+                        <strong v-else>Not connected</strong>
+                      </div>
+                      <div style="text-align: center;">
+                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/admin-profile/connect-github-account" @click.prevent="githubConnectUser">
+                          Connect with GitHub
+                        </a>
+                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/admin-profile/remove-github-account" @click.prevent="githubRemoveUser">
+                          Remove from GitHub
+                        </a>
+                      </div>
                     </div>
-                    <div style="text-align: center;">
-                      <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/admin-profile/connect-github-account" @click.prevent="githubConnectUser">
-                        Connect with GitHub
-                      </a>
-                      <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/admin-profile/remove-github-account" @click.prevent="githubRemoveUser">
-                        Remove from GitHub
-                      </a>
-                    </div>
-                  </div>
-                  <div id="google" class="tab-pane">
-                    <div style="text-align: center; margin-top: 5px; margin-bottom: 10px;">
-                      <strong>Status: </strong>
-                      <strong v-if="$store.getters.getUser.google_id">Connected</strong>
-                      <strong v-else>Not connected</strong>
-                    </div>
-                    <div style="text-align: center;">
-                      <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/admin-profile/connect-google-account" @click.prevent="googleConnectUser">
-                        Connect with Google
-                      </a>
-                      <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/admin-profile/remove-google-account" @click.prevent="googleRemoveUser">
-                        Remove from Google
-                      </a>
+                    <div id="google_tab_contents" style="display: none;">
+                      <div style="text-align: center; margin-top: 5px; margin-bottom: 10px;">
+                        <strong>Status: </strong>
+                        <strong v-if="$store.getters.getUser.google_id">Connected</strong>
+                        <strong v-else>Not connected</strong>
+                      </div>
+                      <div style="text-align: center;">
+                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/admin-profile/connect-google-account" @click.prevent="googleConnectUser">
+                          Connect with Google
+                        </a>
+                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" style="width: 200px; height: 52px; padding-top: 14px; margin: 5px !important;" href="/admin-profile/remove-google-account" @click.prevent="googleRemoveUser">
+                          Remove from Google
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -136,34 +134,72 @@
       onMounted(
         async() => {
           document.getElementById('body').className = 'g-sidenav-show  bg-gray-200'
-          const { usePerfectScrollbar, useToggleSidebar, useTabsNavigation } = materialDashboard()
+          const { usePerfectScrollbar, useToggleSidebar } = materialDashboard()
           usePerfectScrollbar()
           useToggleSidebar()
-          useTabsNavigation()
         }
       )
+      const switchFacebookTab = async() => {
+        document.getElementById('github_tab').style.backgroundColor = '#F8F9FA'
+        document.getElementById('github_tab').style.boxShadow = 'none'
+        document.getElementById('github_tab_contents').style.display = 'none'
+
+        document.getElementById('google_tab').style.backgroundColor = '#F8F9FA'
+        document.getElementById('google_tab').style.boxShadow = 'none'
+        document.getElementById('google_tab_contents').style.display = 'none'
+
+        document.getElementById('facebook_tab').style.backgroundColor = '#ffffff'
+        document.getElementById('facebook_tab').style.boxShadow = '0 1px 5px 1px #ddd'
+        document.getElementById('facebook_tab_contents').style.display = 'block'
+      }
+      const switchGithubTab = async() => {
+        document.getElementById('facebook_tab').style.backgroundColor = '#F8F9FA'
+        document.getElementById('facebook_tab').style.boxShadow = 'none'
+        document.getElementById('facebook_tab_contents').style.display = 'none'
+
+        document.getElementById('google_tab').style.backgroundColor = '#F8F9FA'
+        document.getElementById('google_tab').style.boxShadow = 'none'
+        document.getElementById('google_tab_contents').style.display = 'none'
+
+        document.getElementById('github_tab').style.backgroundColor = '#ffffff'
+        document.getElementById('github_tab').style.boxShadow = '0 1px 5px 1px #ddd'
+        document.getElementById('github_tab_contents').style.display = 'block'
+      }
+      const switchGoogleTab = async() => {
+        document.getElementById('facebook_tab').style.backgroundColor = '#F8F9FA'
+        document.getElementById('facebook_tab').style.boxShadow = 'none'
+        document.getElementById('facebook_tab_contents').style.display = 'none'
+
+        document.getElementById('github_tab').style.backgroundColor = '#F8F9FA'
+        document.getElementById('github_tab').style.boxShadow = 'none'
+        document.getElementById('github_tab_contents').style.display = 'none'
+
+        document.getElementById('google_tab').style.backgroundColor = '#ffffff'
+        document.getElementById('google_tab').style.boxShadow = '0 1px 5px 1px #ddd'
+        document.getElementById('google_tab_contents').style.display = 'block'
+      }
       const facebookConnectUser = async() => {
-        const type_profile = store.getters.getUser.type.toLowerCase() + '-profile'
+        const type_profile = 'admin-profile'
         await facebookConnect(type_profile)
       }
       const facebookRemoveUser = async() => {
-        const type_profile = store.getters.getUser.type.toLowerCase() + '-profile'
+        const type_profile = 'admin-profile'
         await facebookRemove(type_profile)
       }
       const githubConnectUser = async() => {
-        const type_profile = store.getters.getUser.type.toLowerCase() + '-profile'
+        const type_profile = 'admin-profile'
         await githubConnect(type_profile)
       }
       const githubRemoveUser = async() => {
-        const type_profile = store.getters.getUser.type.toLowerCase() + '-profile'
+        const type_profile = 'admin-profile'
         await githubRemove(type_profile)
       }
       const googleConnectUser = async() => {
-        const type_profile = store.getters.getUser.type.toLowerCase() + '-profile'
+        const type_profile = 'admin-profile'
         await googleConnect(type_profile)
       }
       const googleRemoveUser = async() => {
-        const type_profile = store.getters.getUser.type.toLowerCase() + '-profile'
+        const type_profile = 'admin-profile'
         await googleRemove(type_profile)
       }
       onBeforeUnmount(
@@ -178,6 +214,9 @@
         }
       )
       return{
+        switchFacebookTab,
+        switchGithubTab,
+        switchGoogleTab,
         facebookConnectUser,
         facebookRemoveUser,
         githubConnectUser,

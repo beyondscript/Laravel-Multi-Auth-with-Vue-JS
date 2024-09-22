@@ -222,7 +222,7 @@ export default function profile(){
     const formData = new FormData()
     formData.append('_method', 'patch')
     try{
-      let response = await axios.post('/api/' + type_profile + '/facebook/connect', formData)
+      let response = await axios.post('/api/' + type_profile + '/connect-facebook-account', formData)
       window.location.href = response.data.redirectUrl;
     }
     catch(error){
@@ -238,7 +238,7 @@ export default function profile(){
     const formData = new FormData()
     formData.append('_method', 'patch')
     try{
-      let response = await axios.post('/api/' + type_profile + '/facebook/remove', formData)
+      let response = await axios.post('/api/' + type_profile + '/remove-facebook-account', formData)
       if(response.data.removed === true){
         toastr.error('Successfully removed from Facebook')
       }
@@ -261,7 +261,7 @@ export default function profile(){
     const formData = new FormData()
     formData.append('_method', 'patch')
     try{
-      let response = await axios.post('/api/' + type_profile + '/github/connect', formData)
+      let response = await axios.post('/api/' + type_profile + '/connect-github-account', formData)
       window.location.href = response.data.redirectUrl;
     }
     catch(error){
@@ -277,7 +277,7 @@ export default function profile(){
     const formData = new FormData()
     formData.append('_method', 'patch')
     try{
-      let response = await axios.post('/api/' + type_profile + '/github/remove', formData)
+      let response = await axios.post('/api/' + type_profile + '/remove-github-account', formData)
       if(response.data.removed === true){
         toastr.error('Successfully removed from GitHub')
       }
@@ -300,7 +300,7 @@ export default function profile(){
     const formData = new FormData()
     formData.append('_method', 'patch')
     try{
-      let response = await axios.post('/api/' + type_profile + '/google/connect', formData)
+      let response = await axios.post('/api/' + type_profile + '/connect-google-account', formData)
       window.location.href = response.data.redirectUrl;
     }
     catch(error){
@@ -316,7 +316,7 @@ export default function profile(){
     const formData = new FormData()
     formData.append('_method', 'patch')
     try{
-      let response = await axios.post('/api/' + type_profile + '/google/remove', formData)
+      let response = await axios.post('/api/' + type_profile + '/remove-google-account', formData)
       if(response.data.removed === true){
         toastr.error('Successfully removed from Google')
       }

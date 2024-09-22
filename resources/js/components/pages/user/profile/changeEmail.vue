@@ -47,7 +47,7 @@
   </main>
 </template>
 <script>
-  import { onBeforeMount, onMounted, onBeforeUnmount, onUnmounted } from 'vue';
+  import { onBeforeMount, onMounted, onUnmounted } from 'vue';
   import { Form, Field, ErrorMessage } from 'vee-validate';
   import * as yup from 'yup';
   import { useStore } from 'vuex';
@@ -68,9 +68,8 @@
       const { changeEmail } = profile()
       onBeforeMount(
         async() => {
-          const { checkAuthentication, authUser } = profile()
+          const { checkAuthentication } = profile()
           await checkAuthentication()
-          await authUser()
         }
       )
       onMounted(
@@ -95,7 +94,7 @@
         }
       }
       const changeUserEmail = async(values, { resetForm }) => {
-        const type_profile = store.getters.getUser.type.toLowerCase() + '-profile'
+        const type_profile = 'user-profile'
         await changeEmail(values, type_profile)
         resetForm({
           values: {
@@ -157,11 +156,6 @@
         await showCurrentPasswordError()
         await removeEmailError()
       }
-      onBeforeUnmount(
-        async() => {
-          store.dispatch('removeUser')
-        }
-      )
       onUnmounted(
         async() => {
           document.getElementById('body').removeAttribute('class')

@@ -50,14 +50,14 @@ Route::middleware(['auth:sanctum', 'verifiedEmail'])->group(function(){
     Route::patch('/{type_profile}/update-password', [ProfileController::class, 'update_password']);
     Route::patch('/{type_profile}/update-picture', [ProfileController::class, 'update_picture']);
 
-    Route::patch('/{type_profile}/facebook/connect', [SocialiteController::class, 'facebookredirect']);
-    Route::patch('/{type_profile}/facebook/remove', [SocialiteController::class, 'facebookremove']);
+    Route::patch('/{type_profile}/connect-facebook-account', [SocialiteController::class, 'facebookredirect']);
+    Route::patch('/{type_profile}/remove-facebook-account', [SocialiteController::class, 'facebookremove']);
 
-    Route::patch('/{type_profile}/github/connect', [SocialiteController::class, 'githubredirect']);
-    Route::patch('/{type_profile}/github/remove', [SocialiteController::class, 'githubremove']);
+    Route::patch('/{type_profile}/connect-github-account', [SocialiteController::class, 'githubredirect']);
+    Route::patch('/{type_profile}/remove-github-account', [SocialiteController::class, 'githubremove']);
 
-    Route::patch('/{type_profile}/google/connect', [SocialiteController::class, 'googleredirect']);
-    Route::patch('/{type_profile}/google/remove', [SocialiteController::class, 'googleremove']);
+    Route::patch('/{type_profile}/connect-google-account', [SocialiteController::class, 'googleredirect']);
+    Route::patch('/{type_profile}/remove-google-account', [SocialiteController::class, 'googleremove']);
 });
 
 Route::middleware(['auth:sanctum'])->group(function () {

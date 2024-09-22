@@ -43,7 +43,7 @@
   </main>
 </template>
 <script>
-  import { onBeforeMount, onMounted, onBeforeUnmount, onUnmounted } from 'vue';
+  import { onBeforeMount, onMounted, onUnmounted } from 'vue';
   import { Form, Field } from 'vee-validate';
   import $ from 'jquery';
   import { useStore } from 'vuex';
@@ -63,9 +63,8 @@
       const { changePicture } = profile()
       onBeforeMount(
         async() => {
-          const { checkAuthentication, authUser } = profile()
+          const { checkAuthentication } = profile()
           await checkAuthentication()
-          await authUser()
         }
       )
       onMounted(
@@ -87,7 +86,7 @@
         }
       )
       const changeUserPicture = async(values, { resetForm }) => {
-        const type_profile = store.getters.getUser.type.toLowerCase() + '-profile'
+        const type_profile = 'user-profile'
         store.dispatch('removeImageError')
         await changePicture(values, type_profile)
         $('.dropify-clear').click()
@@ -114,11 +113,6 @@
       const removeErrors = async() => {
         store.dispatch('removeImageError')
       }
-      onBeforeUnmount(
-        async() => {
-          store.dispatch('removeUser')
-        }
-      )
       onUnmounted(
         async() => {
           document.getElementById('body').removeAttribute('class')
