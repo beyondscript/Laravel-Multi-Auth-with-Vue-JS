@@ -32,7 +32,7 @@ class AuthServiceProvider extends ServiceProvider
             'custom_session_guard',
             function ($app) {
                 $provider = new EloquentUserProvider($app['hash'], config('auth.providers.users.model'));
-                $guard = new CustomSessionGuard('my_session_guard', $provider, app()->make('session.store'), request());
+                $guard = new CustomSessionGuard('custom_session_guard', $provider, app()->make('session.store'), request());
                 $guard->setCookieJar($this->app['cookie']);
                 $guard->setDispatcher($this->app['events']);
                 $guard->setRequest($this->app->refresh('request', $guard, 'setRequest'));
