@@ -420,6 +420,16 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  	if (to.name !== 'Login') {
+    	localStorage.removeItem('redirectAfterLogin')
+  		next()
+	}
+	else{
+		next()
+	}
+});
+
+router.beforeEach((to, from, next) => {
 	if(to.meta.requiresAuth === true && store.getters.getToken === 0){
 		localStorage.setItem('redirectAfterLogin', to.fullPath)
 		next({name: 'Login'})
