@@ -180,14 +180,19 @@ export default function auth(){
       store.dispatch('setType', response.data.type)
       if(response.data.verified === true){
         store.dispatch('setVerified', 1)
-        if(response.data.type === 'Admin'){
-          router.push({name: 'adminDashboard'})
+        if(localStorage.getItem('redirectAfterLogin')){
+          router.push(localStorage.getItem('redirectAfterLogin'))
         }
-        else if(response.data.type === 'User'){
-          router.push({name: 'userDashboard'})
-        }
-        else if(response.data.type === 'Pro'){
-          router.push({name: 'proDashboard'})
+        else{
+          if(response.data.type === 'Admin'){
+            router.push({name: 'adminDashboard'})
+          }
+          else if(response.data.type === 'User'){
+            router.push({name: 'userDashboard'})
+          }
+          else if(response.data.type === 'Pro'){
+            router.push({name: 'proDashboard'})
+          }
         }
       }
       else if(response.data.verified === false){

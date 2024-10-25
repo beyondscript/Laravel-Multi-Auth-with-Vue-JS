@@ -189,6 +189,7 @@
       onUnmounted(
         async() => {
           store.dispatch('removeEmailError')
+          localStorage.removeItem('redirectAfterLogin')
         }
       )
       return{
