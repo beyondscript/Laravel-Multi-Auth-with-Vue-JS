@@ -30,7 +30,7 @@ Generate new application key by running the command "php artisan key:generate"
 
 <strong>Step - 5:</strong>
 <br>
-Create a new database and import the laraveleloquentormwithvuejs.sql file
+Create a new database and import the laravelmultiauthwithvuejs.sql file
 
 <strong>Step - 6:</strong>
 <br>
