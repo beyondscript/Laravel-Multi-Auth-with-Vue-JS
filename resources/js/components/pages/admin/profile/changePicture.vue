@@ -83,6 +83,8 @@
           if('ontouchstart' in window) {
             document.getElementById('dropify-wrapper').classList.remove('touch-fallback')
           }
+
+          document.getElementById('image').setAttribute('title', '')
         }
       )
       const changeUserPicture = async(values, { resetForm }) => {
