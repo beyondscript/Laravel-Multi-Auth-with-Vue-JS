@@ -14,18 +14,18 @@
                 <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
                   <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">SIGN IN</h4>
                   <div class="row mt-3">
-                    <div class="col-2 text-center ms-auto">
-                      <a class="btn btn-link px-3" href="/login-with-facebook" @click.prevent="facebookLoginUser">
+                    <div class="col-2 text-center ms-auto" style="display: flex; justify-content: center;">
+                      <a class="btn btn-link px-3" style="display: flex; justify-content: center;" href="/login-with-facebook" @click.prevent="facebookLoginUser">
                         <i class="fa fa-facebook text-white text-lg"></i>
                       </a>
                     </div>
-                    <div class="col-2 text-center px-1">
-                      <a class="btn btn-link px-3" href="/login-with-github" @click.prevent="githubLoginUser">
+                    <div class="col-2 text-center px-1" style="display: flex; justify-content: center;">
+                      <a class="btn btn-link px-3" style="display: flex; justify-content: center;" href="/login-with-github" @click.prevent="githubLoginUser">
                         <i class="fa fa-github text-white text-lg"></i>
                       </a>
                     </div>
-                    <div class="col-2 text-center me-auto">
-                      <a class="btn btn-link px-3" href="/login-with-google" @click.prevent="googleLoginUser">
+                    <div class="col-2 text-center me-auto" style="display: flex; justify-content: center;">
+                      <a class="btn btn-link px-3" style="display: flex; justify-content: center;" href="/login-with-google" @click.prevent="googleLoginUser">
                         <i class="fa fa-google text-white text-lg"></i>
                       </a>
                     </div>
