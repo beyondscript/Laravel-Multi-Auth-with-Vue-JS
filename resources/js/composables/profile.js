@@ -1,8 +1,9 @@
 import { useStore } from 'vuex';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 export default function profile(){
 	const store = useStore()
 	const router = useRouter()
+  const route = useRoute()
   const checkAuthentication = async() => {
     try{
       let response = await axios.get('/api/check-authentication')
@@ -44,6 +45,7 @@ export default function profile(){
         store.dispatch('removeToken')
         store.dispatch('removeVerified')
         store.dispatch('removeType')
+        localStorage.setItem('redirectAfterLogin', route.path)
         router.push({name: 'Home'})
       }
     }

@@ -156,7 +156,7 @@ class AuthController extends Controller
 
     public function logout(){
         $user = Auth::user();
-        $user->tokens()->delete();
+        $user->currentAccessToken()->delete();
         Auth::guard('web')->logoutCurrentDevice();
 
         return response()->json([
