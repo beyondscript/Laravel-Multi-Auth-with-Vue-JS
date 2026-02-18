@@ -34,12 +34,6 @@
                     </div>
                   </Form>
                 </div>
-                <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                  <p class="mb-2 text-sm mx-auto">
-                    Already have an account?
-                    <router-link class="text-primary text-gradient font-weight-bold" :to="{name: 'Login'}">SIGN IN</router-link>
-                  </p>
-                </div>
               </div>
             </div>
           </div>
