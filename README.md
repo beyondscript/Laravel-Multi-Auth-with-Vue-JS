@@ -100,6 +100,14 @@ Delete the node_modules folder from the root directory
 
 ## Note
 
+<strong>Privacy Policy Url:</strong>
+<br>
+your_application_url/privacy-policy
+
+<strong>Data Deletion Information Url:</strong>
+<br>
+your_application_url/data-deletion-information
+
 <strong>Facebook Callback/Redirect Url:</strong>
 <br>
 your_application_url/api/auth/facebook-callback
