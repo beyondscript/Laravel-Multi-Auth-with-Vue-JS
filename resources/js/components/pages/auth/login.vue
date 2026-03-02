@@ -68,6 +68,7 @@
               </div>
             </div>
           </div>
+          <a style="color: #fff; text-align: center; margin-bottom: 16px;" :href="'/privacy-policy'">PRIVACY POLICY</a>
         </div>
       </div>
     </div>
