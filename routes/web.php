@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware(['www'])->group(function () {
+    Route::get('/privacy-policy', function () {
+        return view('privacyPolicy');
+    });
+  
+    Route::get('/data-deletion-information', function () {
+        return view('dataDeletionInformation');
+    });
+
     Route::get('/{any}', function () {
         return view('index');
     })->where('any','.*');
