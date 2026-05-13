@@ -39,7 +39,7 @@ export default function auth(){
         store.dispatch('removeToken')
         store.dispatch('removeVerified')
         store.dispatch('removeType')
-        if(route.name === 'verifyEmail'){
+        if(route.name === 'verifyEmail' || route.name === 'verifyingEmail'){
           router.push({name: 'Home'})
         }
       }
