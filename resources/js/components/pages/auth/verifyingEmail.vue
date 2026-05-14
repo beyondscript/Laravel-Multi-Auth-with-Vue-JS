@@ -13,14 +13,13 @@
         async() => {
           document.getElementById('body').className = 'g-sidenav-show  bg-gray-200'
           const route = useRoute()
-          const { checkAuthentication, verify } = auth()
+          const { verify } = auth()
           const url = ref({
             id: route.params.id,
             hash: route.params.hash,
             expires: route.query.expires,
             signature: route.query.signature
           })
-          await checkAuthentication()
         	await verify(url)
         }
       )
