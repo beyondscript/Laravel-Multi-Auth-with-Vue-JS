@@ -39,7 +39,7 @@ export default function auth(){
         store.dispatch('removeToken')
         store.dispatch('removeVerified')
         store.dispatch('removeType')
-        if(route.name === 'verifyEmail' || route.name === 'verifyingEmail'){
+        if(route.name === 'verifyEmail'){
           router.push({name: 'Home'})
         }
       }
@@ -126,6 +126,12 @@ export default function auth(){
       }
     }
     catch(error){
+	  if(error.response.status === 401 && error.response.data.message === 'Unauthenticated.'){
+        store.dispatch('removeToken')
+        store.dispatch('removeVerified')
+        store.dispatch('removeType')
+        router.push({name: 'Home'})
+      }
       if(error.response.status === 403 && error.response.data.message === 'Invalid signature.'){
         router.push({name: 'verifyEmail'})
         toastr.error('Your request is not valid')
