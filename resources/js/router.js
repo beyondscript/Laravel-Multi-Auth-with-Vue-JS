@@ -1,5 +1,7 @@
 import {createWebHistory, createRouter} from 'vue-router';
 import store from './store.js';
+import privacyPolicy from './components/pages/privacyPolicy.vue';
+import dataDeletionInformation from './components/pages/dataDeletionInformation.vue';
 import redirectToHome from './components/pages/redirectToHome.vue';
 import login from './components/pages/auth/login.vue';
 import register from './components/pages/auth/register.vue';
@@ -38,6 +40,30 @@ const routes = [
 		redirect: {
 			name: 'Login'
 		},
+		meta: {
+			requiresAuth: undefined,
+			isVerified: undefined,
+			isAdmin: undefined,
+			isUser: undefined,
+			isPro: undefined
+		}
+	},
+	{
+		path: '/privacy-policy',
+		name: 'privacyPolicy',
+		component: privacyPolicy,
+		meta: {
+			requiresAuth: undefined,
+			isVerified: undefined,
+			isAdmin: undefined,
+			isUser: undefined,
+			isPro: undefined
+		}
+	},
+	{
+		path: '/data-deletion-information',
+		name: 'dataDeletionInformation',
+		component: dataDeletionInformation,
 		meta: {
 			requiresAuth: undefined,
 			isVerified: undefined,

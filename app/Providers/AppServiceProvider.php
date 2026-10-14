@@ -26,16 +26,19 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if(Schema::hasTable('users')){
-            if(!User::where('type', 'Admin')->exists()){
-                User::create([
-                    'name' => 'Admin',
-                    'email' => 'admin@gmail.com',
-                    'type' => 'Admin',
-                    'email_verified_at' => now(),
-                    'password' => Hash::make('12345678')
-                ]);
+        try{
+            if(Schema::hasTable('users')){
+                if(!User::where('type', 'Admin')->exists()){
+                    User::create([
+                        'name' => 'Admin',
+                        'email' => 'admin@gmail.com',
+                        'type' => 'Admin',
+                        'email_verified_at' => now(),
+                        'password' => Hash::make('12345678')
+                    ]);
+                }
             }
         }
+        catch(\Exception $e){}
     }
 }

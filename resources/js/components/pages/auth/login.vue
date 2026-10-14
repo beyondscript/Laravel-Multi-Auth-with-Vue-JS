@@ -68,7 +68,7 @@
               </div>
             </div>
           </div>
-          <a style="color: #fff; text-align: center; margin-bottom: 16px;" :href="'/privacy-policy'">PRIVACY POLICY</a>
+          <router-link style="color: #fff; text-align: center; margin-bottom: 16px;" :to="{name: 'privacyPolicy'}">PRIVACY POLICY</router-link>
         </div>
       </div>
     </div>

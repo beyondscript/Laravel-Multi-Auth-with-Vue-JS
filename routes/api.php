@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Models\User;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\ForgotPasswordController;
@@ -21,6 +22,14 @@ use App\Http\Controllers\CsrfCookieController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::get('/get-admin', function (Request $request) {
+    $admin = User::where('type', 'Admin')->first();
+
+    return response()->json([
+        'admin' => $admin
+    ],200);
+});
 
 Route::controller(AuthController::class)->group(function(){
     Route::post('/register', 'register');
