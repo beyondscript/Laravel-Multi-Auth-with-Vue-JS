@@ -55,8 +55,8 @@ Route::middleware(['auth:sanctum', 'verifiedEmail'])->group(function(){
         return $request->user();
     });
 
-    Route::patch('/{type_profile}/update-email', [ProfileController::class, 'update_email']);
-    Route::patch('/{type_profile}/update-password', [ProfileController::class, 'update_password']);
+    Route::patch('/{type_profile}/update-email', [ProfileController::class, 'update_email'])->middleware('throttle:6,1');
+    Route::patch('/{type_profile}/update-password', [ProfileController::class, 'update_password'])->middleware('throttle:6,1');
     Route::patch('/{type_profile}/update-picture', [ProfileController::class, 'update_picture']);
 
     Route::patch('/{type_profile}/connect-facebook-account', [SocialiteController::class, 'facebookredirect']);
